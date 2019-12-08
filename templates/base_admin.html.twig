@@ -21,6 +21,24 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path('admin.index') }}">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin.artwork.index') }}">Oeuvre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin.expo.index') }}">Expositions</a>
+            </li>
+        </ul>
+        <a class="btn btn-outline-info" href="{{ path('security.logout') }}">Deconnexion</a>
+    </div>
+</nav>
+
 {% block body %}
     <section class="min-vh-100">
         <h1 class="text-center m-2">Oeuvres</h1>

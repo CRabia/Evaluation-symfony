@@ -29,10 +29,15 @@
 {% block body %}
 
 {% endblock %}
+
+{% if app.request.attributes.get('_route') is not same as("security.login") %}
+    {{ render(controller('App\\Controller\\FrontController:footer' )) }}
+{% endif %}
+
 </body>
 
 </html>
-{{ render(controller('App\\Controller\\FrontController:footer' )) }}
+
 
 {{ encore_entry_script_tags('app') }}
 {% block script %}

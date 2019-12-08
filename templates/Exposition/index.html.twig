@@ -6,11 +6,11 @@
 
 {% block body %}
     <section class="min-vh-100">
-        <div class="jumbotron">
+        <div class="jumbotron text-center">
             <h1 class="display-4">Nos Expositions</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <p class="lead"></p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p>Découvrez nos oeuvres grâce à nos expositions ! Toutes les informations sont à votre disposition.</p>
             {% include 'inc/flashes.html.twig' %}
         </div>
         <div class="row flex-column m-5">
@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ expo.name }}</h5>
                         <p class="card-text">{{ expo.description }}</p>
-                       {# <p>{{ expo.date }}</p>#}
+                       {# <p>{{ expo.date | format('d/m/Y'}}</p>#}
                     </div>
                 </div>
             {% endfor %}

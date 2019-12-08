@@ -1,0 +1,33 @@
+{% extends 'base_admin.html.twig' %}
+
+
+{% block body %}
+    <section class="min-vh-100">
+        <div class="jumbotron">
+            <h1 class="display-4">Dashboard</h1>
+
+            <hr class="my-4">
+           <div class="row">
+               <button type="button" class="btn btn-primary m-5">
+                   Categorie <span class="badge badge-light">{{ categories |length }}</span>
+               </button>
+
+               <button type="button" class="btn btn-success m-5">
+                   Oeuvres <span class="badge badge-light">{{ artworks |length }}</span>
+               </button>
+
+               <button type="button" class="btn btn-danger m-5">
+                   Expositions <span class="badge badge-light">{{ expositions |length }}</span>
+               </button>
+           </div>
+        </div>
+        <div class="row flex-column m-5">
+
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}
