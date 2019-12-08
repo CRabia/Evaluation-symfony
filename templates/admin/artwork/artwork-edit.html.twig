@@ -1,0 +1,34 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col">
+            <h1>Formulaire des oeuvres</h1>
+            {{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+            <p>
+                {{ form_label(form.name, 'Nom:') }}
+                {{ form_widget(form.name) }}
+            </p>
+
+            <p>
+                {{ form_label(form.description, 'Description:') }}
+                {{ form_widget(form.description) }}
+            </p>
+
+            <p>
+                {{ form_label(form.picture, 'Image:') }}
+                {{ form_widget(form.picture) }}
+            </p>
+
+            <p>
+                {{ form_label(form.category, 'Categorie:') }}
+                {{ form_widget(form.category) }}
+            </p>
+
+            <p class="text-right">
+                <input class="btn btn-primary" type="submit" value="Valider">
+            </p>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

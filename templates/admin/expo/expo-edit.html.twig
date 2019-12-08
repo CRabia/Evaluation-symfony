@@ -1,0 +1,31 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col">
+            <h1 class="mb-3">Ajouter une exposition</h1>
+
+            {{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+            <p>
+                {{ form_label(form.name, 'Nom:') }}
+                {{ form_widget(form.name) }}
+            </p>
+
+            <p>
+                {{ form_label(form.description, "Description :") }}
+                {{ form_widget(form.description) }}
+            </p>
+
+            <p>
+                {{ form_label(form.date, 'Date:') }}
+                {{ form_widget(form.date) }}
+            </p>
+
+            <p class="text-right">
+                <input class="btn btn-primary" type="submit" value="Valider">
+            </p>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+

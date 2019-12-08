@@ -1,0 +1,43 @@
+<footer class="page-footer font-small bg-light py-4">
+    <div class="container-fluid text-center text-md-left">
+        <div class="row">
+            <div class="col-md-6 text-center my-auto">
+                <h5>Tito Salgado</h5>
+                <p class="text-left m-5">© 2019 Tito Salgado tous droits réservés. Tito Salgado est une plateforme dedié à l'art et aux exposition d'art.</p>
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5>Homepage</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ url('front') }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('exposition.index') }}">Expositions</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('front.contact') }}">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('front.mention') }}">Mentions légales</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-3 mb-md-0 mb-3">
+                <h5>Œuvres</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{{ url('artwork.index') }}">Tout</a>
+                    </li>
+
+                    {% for category in categories %}
+                        <li>
+                            <a href="{{ url('artwork.category', {'id': category.id}) }}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+

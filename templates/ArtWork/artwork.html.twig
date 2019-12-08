@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos oeuvres{% endblock %}
+{% block meta %}Nos oeuvres{% endblock %}
+
+
+{% block body %}
+    <section class="min-vh-100">
+        <h1 class="text-center m-2">{{ artwork.name }}</h1>
+        <div class="row justify-content-center m-5">
+            <div class="col-5">
+                <img src="{{ asset('img/artwork/' ~ artwork.picture) }}" class="d-block w-100" alt="Photo de l'oeuvre : {{ artwork.name }}">
+            </div>
+            <div class="col-5">
+                <p>{{ artwork.description }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

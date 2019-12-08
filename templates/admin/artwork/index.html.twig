@@ -1,0 +1,34 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <section class="min-vh-100">
+        <div class="jumbotron">
+            <h1 class="display-4">Nos oeuvres</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+                to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            {% include 'inc/flashes.html.twig' %}
+        </div>
+        <div class="row justify-content-center m-5">
+            <div class="col-11">
+                <a href="{{ path('admin.artwork.form') }}" class="btn btn-success">Ajouter une oeuvre</a>
+                <div class="row flex-wrap">
+                    {% for artwork in artworks %}
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="{{ asset('img/artwork/' ~ artwork.picture) }}" class="d-block w-100"
+                                 alt="Photo de l'oeuvre : {{ artwork.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ artwork.name }}</h5>
+                                <p class="card-text">{{ artwork.description | truncate(100) }}</p>
+                                <a href="{{ path('admin.artwork.form.update',{'id':artwork.id}) }}" class="btn btn-info">Editer</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

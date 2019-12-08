@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos oeuvres{% endblock %}
+{% block meta %}Nos oeuvres{% endblock %}
+
+
+{% block body %}
+    <section class="min-vh-100">
+        <div class="jumbotron">
+            <h1 class="display-4">Nos oeuvres</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+        </div>
+        <div class="row justify-content-center m-5">
+            <div class="col-11">
+                {% for categoryName, artworks in artworks %}
+
+                    <h3>{{ categoryName }}</h3>
+                    <div class="row flex-wrap">
+
+                        {% for artwork in artworks %}
+
+                            <a href="{{ path('artwork.show',{'artwork':artwork.id}) }}">
+                                <div class="card m-2"  style="width: 18rem;">
+                                    <img src="{{ asset('img/artwork/' ~ artwork.picture) }}" class="d-block w-100" alt="Photo de l'oeuvre : {{ artwork.name }}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ artwork.name }}</h5>
+                                        <p class="card-text">{{ artwork.description | truncate(100) }}</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

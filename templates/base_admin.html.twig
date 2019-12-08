@@ -1,0 +1,40 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block meta %}{% endblock %}" />
+
+    {{ encore_entry_link_tags('app') }}
+
+    {% block style %}
+
+    {% endblock %}
+
+    {% block linkscript %}
+
+    {% endblock %}
+
+</head>
+<body>
+
+{% block body %}
+    <section class="min-vh-100">
+        <h1 class="text-center m-2">Oeuvres</h1>
+        <div class="row justify-content-center m-5">
+
+        </div>
+    </section>
+{% endblock %}
+
+</body>
+
+</html>
+
+{{ encore_entry_script_tags('app') }}
+{% block script %}
+
+{% endblock %}
