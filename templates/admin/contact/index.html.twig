@@ -1,0 +1,31 @@
+{% extends 'base_admin.html.twig' %}
+
+
+{% block body %}
+    <section class="min-vh-100">
+        <div class="jumbotron">
+            <h1 class="display-4">Les messages</h1>
+            <hr class="my-4">
+            <p> Les messages laissés depuis la plateforme</p>
+
+        </div>
+        <div class="row flex-column m-5">
+            {% for contact in contacts %}
+                <div class="card m-4">
+                    <div class="card-header">
+                        Mme ou Mr : {{ contact.lastname }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text font-weight-bold">{{ contact.email }}</p>
+                        <p class="card-text">{{ contact.message }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}

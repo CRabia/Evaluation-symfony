@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\ArtWork;
 use App\Entity\Category;
+use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Form\Model\ContactModel;
 use App\Repository\ArtWorkRepository;
 use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,7 +39,8 @@ class FrontController extends AbstractController
     public function form(Request $request)
     {
         $type = ContactType::class;
-        $model = new ContactModel();
+        $model = new Contact();
+        $entityManager = $this->getDoctrine()->getManager();
 
         $form = $this->createForm($type, $model);
 
@@ -45,6 +48,8 @@ class FrontController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $this->addFlash('notice', 'Votre message à bien été enregistré !');
+            $entityManager->persist($model);
+            $entityManager->flush();
             return $this->redirectToRoute('front.contact');
         }
 
